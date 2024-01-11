@@ -1,14 +1,5 @@
-interface BudgetItem {
-  _id: string;
-  budget: number;
-  source: 'database' | 'local';
-}
+import React, { FC } from 'react';
 
-interface BudgetsState {
-  budgets: BudgetItem[];
+export interface BudgetTableProps {
+  
 }
-
-type BudgetsAction =
-  | { type: 'SET_BUDGETS'; payload: BudgetItem[] }
-  | { type: 'CREATE_BUDGET'; payload: BudgetItem }
-  | { type: 'UPDATE_BUDGET'; payload: { _id: string; budget: number } };
