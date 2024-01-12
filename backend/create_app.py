@@ -6,7 +6,7 @@ def create_app():
     app = Flask(__name__)
 
     # Set the service account key file path relative to create_app.py
-    key_file_path = os.path.join(os.path.dirname(__file__), 'keys', 'rare-basis-410812-f92076a306da.json')
+    key_file_path = os.path.join(os.path.dirname(__file__), 'keys', 'rare-basis-410812-2c7d0a25bc12.json')
 
     storage_client = storage.Client.from_service_account_json(key_file_path)
 
@@ -18,6 +18,6 @@ def create_app():
         bucket = storage_client.create_bucket(bucket_name)
 
     app.config['STORAGE_CLIENT'] = storage_client
-    app.config['BUCKET'] = bucket
+    app.config['BUCKET_NAME'] = bucket_name
 
     return app
