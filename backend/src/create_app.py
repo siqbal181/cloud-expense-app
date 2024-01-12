@@ -1,4 +1,3 @@
-# src/create_app.py
 import os
 from flask import Flask
 from google.cloud import storage

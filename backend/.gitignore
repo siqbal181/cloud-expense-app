@@ -1,1 +1,37 @@
 src/keys/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+ENV/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+
+# Logs
+*.log
+
+# Environment variables file
+.env
+
+# Local development configuration
+instance/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore 'src' directory
+/src/__pycache__/
+/src/*.pyc
+/src/*.pyo
+/src/*.pyd
