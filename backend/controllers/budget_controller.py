@@ -1,17 +1,19 @@
 from flask import current_app, jsonify, request
-from google.cloud import storage
-import json
+from ..models.budget import MonthlyBudget
 
 def save_budget():
     spend_data = request.get_json()
 
     if not spend_data:
-        return "Invalid spend data", 400
+        return jsonify({"error": "Invalid spend data"}), 400
 
-    storage_client = current_app.config["STORAGE_CLIENT"]
-    bucket = current_app.config["BUCKET"]
+    try:
+        category = spend_data.get("category", "")
+        budget = spend_data.get("budget", "")
 
-    # Perform the necessary operations to save the budget
-    # ...
+        monthly_budget = MonthlyBudget(category=category, budget=budget)
+        result = monthly_budget.save_to_gcs()
 
-    return "Budget saved successfully", 200
+        return jsonify(result), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
